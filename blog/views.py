@@ -11,7 +11,7 @@ def post_list(request):
     post_by_month_arr = []
 
     for month in range(1,13):
-        post_by_month_arr.append({'posts':Post.objects.filter(published_date__month=month), 'month':month})
+        post_by_month_arr.append({'posts':Post.objects.filter(published_date__month=month, published_date__year=2021), 'month':month})
     
     print('post by month array', post_by_month_arr)
 
@@ -24,3 +24,8 @@ def post_detail(request, pk):
     post =Post.objects.get(pk=pk)
     context = { 'post' : post }
     return render(request, 'blog/post_detail.html', context)
+
+def post_list_per_month(request,pk):
+    posts = Post.objects.filter(published_date__month=pk, published_date__year=2021)
+    context = {'posts':posts}
+    return render(request, 'blog/post_list_per_month.html', context)

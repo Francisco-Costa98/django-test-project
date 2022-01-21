@@ -15,8 +15,12 @@
 {%endfor%} -->
 <h2>Posts by month</h2>
 {% for month in postsByMonth %}
-<h3>{{month.month}}</h3>
-{% for post in month.posts%}
+<h3><a href="{% url 'post_list_per_month' pk=month.month %}">{{month.month}}</h3>
+
+{%endfor%}  {% endblock %}
+
+
+ <!-- {% for post in month.posts%}
 <article>
   <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
   <time>published: {{ post.published_date }}</time>
@@ -25,6 +29,5 @@
   <p>{{tag.name}}</p>
   {% endfor %} {% for comment in post.comments.all %}
   <p>{{comment.text}}</p>
-  {% endfor %}
-</article>
-{%endfor%} {% endfor %} {% endblock %}
+  {% endfor %} 
+</article> {%endfor%} -->
