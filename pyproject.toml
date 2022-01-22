@@ -7,6 +7,8 @@ authors = ["Francisco-Costa98 <franciscomffcosta@hotmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "2.2.4"
+djangorestframework = "^3.13.1"
+Pygments = "^2.11.2"
 
 [tool.poetry.dev-dependencies]
 
